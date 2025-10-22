@@ -6,9 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import NextLapButton from "@/components/NextLapButton";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -21,25 +23,38 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Play F1 radio sound
-    const audio = new Audio('/f1-radio.mp3');
+    const audio = new Audio("/f1-radio.mp3");
     audio.volume = 0.6;
-    audio.play().catch(error => {
-      console.log('Audio playback failed:', error);
-    });
+    audio.play().catch(() => {});
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      await emailjs.send(
+        "service_mwk6iaq", 
+        "template_n3eepb8", 
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        "FR7eqEU361xpNpFhP" 
+      );
+
+      setIsSuccess(true);
+      toast({
+        title: "Message sent successfully!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        title: "Failed to send message",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    }
 
     setIsSubmitting(false);
-    setIsSuccess(true);
 
-    toast({
-      title: "Message sent successfully!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
-
-    // Reset form after success
     setTimeout(() => {
       setFormData({ name: "", email: "", message: "" });
       setIsSuccess(false);
@@ -57,7 +72,6 @@ const Contact = () => {
 
   return (
     <main className="relative min-h-screen py-20 lg:py-32">
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(3)].map((_, i) => (
           <div
@@ -73,7 +87,6 @@ const Contact = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-12 lg:mb-20 space-y-4 lg:space-y-6 animate-fade-in-up">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-black">
             <span className="text-primary neon-text">🗣️ Pit Radio</span>
@@ -86,11 +99,9 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Contact Form */}
         <div className="max-w-2xl mx-auto">
           <Card className="p-6 lg:p-10 bg-card/50 backdrop-blur-sm border-border animate-fade-in-up">
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
               <div className="space-y-2">
                 <label
                   htmlFor="name"
@@ -111,7 +122,6 @@ const Contact = () => {
                 />
               </div>
 
-              {/* Email Field */}
               <div className="space-y-2">
                 <label
                   htmlFor="email"
@@ -131,7 +141,6 @@ const Contact = () => {
                 />
               </div>
 
-              {/* Message Field */}
               <div className="space-y-2">
                 <label
                   htmlFor="message"
@@ -152,7 +161,6 @@ const Contact = () => {
                 />
               </div>
 
-              {/* Submit Button */}
               <Button
                 type="submit"
                 size="lg"
@@ -180,11 +188,11 @@ const Contact = () => {
             </form>
           </Card>
 
-          {/* Alternative Contact Methods */}
-          <div className="mt-12 text-center space-y-4 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <p className="text-sm lg:text-base text-muted-foreground">
-              Or reach out directly at: <span className="text-primary font-mono">contact@example.com</span>
-            </p>
+          <div
+            className="mt-12 text-center space-y-4 animate-fade-in-up"
+            style={{ animationDelay: "0.2s" }}
+          >
+  
           </div>
         </div>
 
