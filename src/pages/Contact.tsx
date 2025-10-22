@@ -21,6 +21,13 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Play F1 radio sound
+    const audio = new Audio('/f1-radio.mp3');
+    audio.volume = 0.6;
+    audio.play().catch(error => {
+      console.log('Audio playback failed:', error);
+    });
+
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
