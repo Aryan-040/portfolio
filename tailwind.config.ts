@@ -158,5 +158,6 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  // @ts-expect-error - Importing tailwindcss-animate plugin
+  plugins: [import("tailwindcss-animate")],
 } satisfies Config;

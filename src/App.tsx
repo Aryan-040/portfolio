@@ -7,7 +7,7 @@ import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
+import Contact from "./pages/Contact";  
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
