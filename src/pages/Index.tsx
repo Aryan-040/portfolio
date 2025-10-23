@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Flag } from "lucide-react";
 import StartLapButton from "@/components/StartLapButton";
+import HomeBottomSection from "@/components/HomeBottomSection";
 
 const Index = () => {
   const navigate = useNavigate();
 
   return (
-    <main className="relative min-h-screen overflow-hidden flex items-center">
+    <main className="relative min-h-screen overflow-hidden flex flex-col">
       {/* Grid Background */}
       <div className="absolute inset-0 pit-grid opacity-30" />
       
@@ -26,9 +26,9 @@ const Index = () => {
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+      {/* Main Content - Hero Section */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center">
+        <div className="max-w-5xl mx-auto w-full">
           {/* Start Grid Label */}
           <div className="flex items-center gap-3 mb-8 animate-fade-in-up">
             <Flag className="w-5 h-5 text-primary" />
@@ -75,6 +75,13 @@ const Index = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Bottom Section - Tech Stack + CTA */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <HomeBottomSection />
         </div>
       </div>
 

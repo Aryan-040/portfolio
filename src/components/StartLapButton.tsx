@@ -9,7 +9,7 @@ const StartLapButton = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 150) {
+      if (window.scrollY > 40) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
