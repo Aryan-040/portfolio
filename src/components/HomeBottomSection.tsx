@@ -49,7 +49,7 @@ const PitStopPhilosophy = () => {
   return (
     <section className="relative w-full py-24 overflow-hidden bg-gradient-to-b from-background via-background/80 to-background">
       {/* Background motion track line */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,theme(colors.primary/40),transparent_70%)] animate-pulse" />
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.4),transparent_70%)] animate-pulse" />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <motion.div
