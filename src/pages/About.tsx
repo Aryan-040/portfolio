@@ -113,7 +113,7 @@ const About = () => {
                 interfaces, I thrive on solving complex technical challenges.
               </p>
               <div className="pt-4">
-                <a href="/recruit.pdf" download="Aryan_Mukund_Singh_Resume.pdf">
+                <a href="/Recruit.pdf" download="Aryan_Mukund_Singh_Resume.pdf">
                   <Button
                     size="lg"
                     className="group bg-primary hover:bg-primary/90 text-primary-foreground font-rajdhani font-bold text-base lg:text-lg"
