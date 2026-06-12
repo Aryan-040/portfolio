@@ -26,19 +26,28 @@ const Projects = () => {
       title: "AgentMeet",
       description:
         "AgentMeet is a platform where users create, customize, and interact with AI agents in real-time meetings, enabling intelligent assistant collaboration for professional and personal purposes.",
-      technologies: ["Next.js", "React.js", "Tailwind", "Polar", "OpenAI", "Inngest"],
+      technologies: ["Next.js", "React.js", "Tailwind", "Polar", "OpenAI", "Inngest","trpc", "PostgreSQL" , "NeonDB" , "Better Auth" , "Drizzle ORM"],
       github: "https://github.com/Aryan-040/AgentMeet",
       demo: "https://agent-meet-gl11.vercel.app",
       lap: "Lap 2",
     },
     {
+      title: "idea Stash",
+      description:
+        "A full-stack content intelligence platform for saving, organizing, and discovering resources across YouTube, GitHub, Twitter/X, articles, and websites. Features automated metadata extraction, rich previews, advanced search, sharing capabilities, and secure JWT-based authentication.",
+      technologies: ["Tailwind", "Node.js", "React.js", "Express","MongoDB Atlas","Github"],
+      github: "https://github.com/Aryan-040/Idea-stash",
+      demo: "https://idea-stash-xi.vercel.app/",
+      lap: "Lap 3",
+    },
+    {
       title: "Eco-drop",
       description:
         "An eco-friendly marketplace that connects buyers and sellers facilitating trade of recyclable waste materials according to the categories.",
-      technologies: ["Tailwind", "Next.js", "React.js", "Github"],
+      technologies: ["Tailwind", "Next.js", "React.js","Github"],
       github: "https://github.com/Aryan-040/Eco-drop",
       demo: "xyz",
-      lap: "Lap 3",
+      lap: "Lap 4",
     },
   ];
 

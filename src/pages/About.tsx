@@ -21,7 +21,7 @@ const About = () => {
         "Node.js",
         "TypeScript",
         "JavaScript",
-        "Python",
+        "Java",
         "C++",
         "REST",
         "MongoDB",
@@ -107,7 +107,7 @@ const About = () => {
                 development, cloud architecture, and artificial intelligence.
               </p>
               <p className="text-base lg:text-lg leading-relaxed text-muted-foreground">
-                Currently pursuing B.Tech in Computer Science, I specialize in
+                B.Tech in Computer Science graduate , I specialize in
                 building high-performance applications that scale. From
                 designing robust backend systems to crafting intuitive user
                 interfaces, I thrive on solving complex technical challenges.
