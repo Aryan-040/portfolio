@@ -63,6 +63,7 @@ npm run lint
 ### Routes
 - `/` — Home/Start Grid
 - `/about` — About/Pit
+- `/team-garage` — Team Garage/Experience
 - `/projects` — Projects/Race Laps
 - `/contact` — Contact/Podium
 - `*` — Not Found
@@ -112,6 +113,12 @@ npm run lint
 - **Wheel Loader**: Tire-inspired loading indicator
 - **Start/Next Lap Buttons**: Racing-themed call-to-action buttons
 - **Pit Stop Philosophy**: Development approach inspired by F1 racing strategy
+
+### Team Garage (New)
+
+- **Purpose**: Displays professional experience, internships, leadership positions, and achievements in a racing-themed timeline.
+- **Location**: The `Team Garage` has a dedicated page at `/team-garage` implemented in `src/pages/TeamGarage.tsx` (component in `src/components/TeamGarage.tsx`).
+- **How to add entries**: Edit the `initialEntries` array inside `TeamGarage.tsx` and add objects with the fields: `role`, `company`, `duration`, `location`, `techStack` (string[]), `achievements` (string[]).
 
 ## Responsive Behavior
 - **Desktop**: Full experience with all F1 design elements

@@ -228,4 +228,13 @@ All colors MUST be HSL.
       opacity: 0;
     }
   }
+
+  /* Red neon / garage glow utilities */
+  .neon-red {
+    text-shadow: 0 0 8px hsl(var(--destructive) / 0.85), 0 0 20px hsl(var(--destructive) / 0.45);
+  }
+
+  .red-glow {
+    box-shadow: 0 0 18px hsl(var(--destructive) / 0.45), 0 0 36px hsl(var(--destructive) / 0.18);
+  }
 }

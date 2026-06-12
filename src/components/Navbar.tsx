@@ -18,6 +18,7 @@ const Navbar = () => {
   const navLinks = [
     { to: "/", label: "Start Grid" },
     { to: "/about", label: "Pit" },
+    { to: "/team-garage", label: "Team Garage" },
     { to: "/projects", label: "Race Laps" },
     { to: "/contact", label: "Podium" },
   ];

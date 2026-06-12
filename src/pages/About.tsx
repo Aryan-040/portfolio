@@ -206,7 +206,7 @@ const About = () => {
           </div>
         </div>
 
-        <NextLapButton />
+  <NextLapButton />
       </div>
     </main>
   );

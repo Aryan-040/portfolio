@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface F1LoaderProps {
   isLoading: boolean;
@@ -8,21 +8,45 @@ interface F1LoaderProps {
 
 const F1Loader = ({ isLoading, forceMinDuration = 400 }: F1LoaderProps) => {
   const [showLoader, setShowLoader] = useState(false);
+  const [muted, setMuted] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('f1-muted') === 'true';
+    } catch (e) {
+      return false;
+    }
+  });
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     if (isLoading) {
       setShowLoader(true);
-      
-      // Play F1 sound
-      const audio = new Audio('/f1.mp3');
-      audio.volume = 0.5;
-      audio.play().catch(error => {
-        console.log('Audio playback failed:', error);
-      });
+
+      // Initialize audio (only once)
+      if (!audioRef.current) {
+        const audio = new Audio('/f1.mp3');
+        audio.loop = true;
+        audio.volume = 0.5;
+        audio.muted = muted;
+        audioRef.current = audio;
+      }
+
+      const playAudio = async () => {
+        try {
+          if (!audioRef.current!.muted) {
+            await audioRef.current!.play();
+          }
+        } catch (error) {
+          console.log('Audio playback failed:', error);
+        }
+      };
+
+      playAudio();
 
       return () => {
-        audio.pause();
-        audio.currentTime = 0;
+        if (audioRef.current) {
+          audioRef.current.pause();
+          audioRef.current.currentTime = 0;
+        }
       };
     }
 
@@ -159,6 +183,34 @@ const F1Loader = ({ isLoading, forceMinDuration = 400 }: F1LoaderProps) => {
       >
         NEXT LAP
       </motion.div>
+
+      {/* Mute Toggle */}
+      <div className="absolute top-6 right-6 z-50">
+        <button
+          aria-label={muted ? 'Unmute audio' : 'Mute audio'}
+          className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-background/80 border border-border text-sm hover:bg-background/90 transition"
+          onClick={() => {
+            const newMuted = !muted;
+            setMuted(newMuted);
+            try {
+              localStorage.setItem('f1-muted', String(newMuted));
+            } catch (e) {
+              // ignore
+            }
+
+            if (audioRef.current) {
+              audioRef.current.muted = newMuted;
+              if (newMuted) {
+                audioRef.current.pause();
+              } else {
+                audioRef.current.play().catch(() => {});
+              }
+            }
+          }}
+        >
+          {muted ? 'Unmute' : 'Mute'}
+        </button>
+      </div>
     </motion.div>
   );
 };
