@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import NextLapButton from "@/components/NextLapButton";
-import emailjs from "@emailjs/browser";
+import { sendContactEmail } from "@/services/emailService";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -16,6 +16,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
 
@@ -23,21 +24,18 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Play radio audio
     const audio = new Audio("/f1-radio.mp3");
     audio.volume = 0.6;
     audio.play().catch(() => {});
 
     try {
-      await emailjs.send(
-        "service_6rpj808", 
-        "template_54gxers", 
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
-        "FR7eqEU361xpNpFhP" 
-      );
+      await sendContactEmail({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      });
 
       setIsSuccess(true);
       toast({
@@ -47,8 +45,7 @@ const Contact = () => {
     } catch (error) {
       console.error("EmailJS Error:", error);
       toast({
-        title: "Failed to send message",
-        description: "Something went wrong. Please try again later.",
+        title: "Failed to send message. Please try again.",
         variant: "destructive",
       });
     }
@@ -56,7 +53,7 @@ const Contact = () => {
     setIsSubmitting(false);
 
     setTimeout(() => {
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", subject: "", message: "" });
       setIsSuccess(false);
     }, 3000);
   };
@@ -108,7 +105,7 @@ const Contact = () => {
                   className="flex items-center gap-2 text-sm lg:text-base font-rajdhani font-semibold text-foreground"
                 >
                   <User className="w-4 h-4 text-primary" />
-                  Name
+                  Your Name
                 </label>
                 <Input
                   id="name"
@@ -127,7 +124,7 @@ const Contact = () => {
                   htmlFor="email"
                   className="text-sm lg:text-base font-rajdhani font-semibold text-foreground"
                 >
-                  Email Inbox
+                  From Email
                 </label>
                 <Input
                   id="email"
@@ -135,6 +132,25 @@ const Contact = () => {
                   type="email"
                   placeholder="Radio Check... Type your email"
                   value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="bg-background/50 border-border focus:border-primary transition-colors duration-300"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label
+                  htmlFor="subject"
+                  className="text-sm lg:text-base font-rajdhani font-semibold text-foreground"
+                >
+                  Subject
+                </label>
+                <Input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  placeholder="Subject"
+                  value={formData.subject}
                   onChange={handleChange}
                   required
                   className="bg-background/50 border-border focus:border-primary transition-colors duration-300"
