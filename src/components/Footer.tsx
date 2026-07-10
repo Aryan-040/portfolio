@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
+import { SiLeetcode } from "react-icons/si";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -10,6 +11,7 @@ const Footer = () => {
     { icon: Github, href: "https://github.com/Aryan-040", label: "GitHub" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/aryan-mukund-singh/", label: "LinkedIn" },
     { icon: Mail, href: "mailto:singharyan432002@gmail.com", label: "Email" },
+    { icon: SiLeetcode, href: "https://leetcode.com/u/Aryan4-03/", label: "LeetCode" },
   ];
 
   return (

@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 import { Database } from "lucide-react";
 
 type Experience = {
@@ -34,50 +35,46 @@ type Experience = {
 // ];
 
 const experiences: Experience[] = [
-{
-role: "Data Analyst Intern (Engineering Focus)",
-company: "India TV",
-duration: "Dec 2025 – Jan 2026",
-location: "Noida, India",
-techStack: [
-"Looker Studio",
-"Excel",
-"Power BI",
-"GenAI",
-"Suno AI",
-],
-achievements: [
-"Automated reporting workflows and data processing tasks.",
-"Built analytical dashboards and reporting pipelines.",
-"Improved data accuracy through validation and data cleansing.",
-"Collaborated with engineering and analytics teams on business insights.",
-"Created AI-generated storyboards and promotional media assets for the VETO platform using Generative AI tools.",
-],
-},
-
-{
-role: "Software Quality Analyst Intern",
-company: "Sway.club",
-duration: "May 2025 – Jul 2025",
-location: "Remote",
-techStack: [
-"JUnit",
-"Java",
-"REST APIs",
-"Postman",
-"Git",
-"CI/CD",
-],
-achievements: [
-"Executed 200+ JUnit-driven test cases achieving 98% critical flow coverage across backend services.",
-"Identified and validated 40+ API and authentication defects, reducing production issues by 30%.",
-"Performed end-to-end API testing and backend validation to improve system reliability.",
-"Collaborated with engineering teams on debugging, regression testing, and release verification.",
-"Contributed to SDLC and CI/CD quality assurance workflows to ensure stable deployments.",
-],
-},
+    {
+    role: "Software Engineer Intern",
+    company: "sway.club",
+    duration: "Feb 2026 – Apr 2026",
+    location: "Remote",
+    techStack: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "OAuth",
+      "GitHub Actions",
+      "CI/CD",
+    ],
+    achievements: [
+      "Developed backend API endpoints and data models for the social feed and notifications service.",
+      "Resolved 40+ issues across OAuth authentication, API validation, and input handling, improving application stability.",
+      "Configured GitHub Actions CI/CD pipelines with automated test suites and regression checks for every pull request.",
+      "Collaborated with engineers on backend debugging, code reviews, and production deployments.",
+      "Contributed to backend feature development while following Agile, SDLC, and CI/CD best practices.",
+    ],
+  },
+  {
+    role: "Data Engineering Intern",
+    company: "India TV",
+    duration: "Dec 2025 – Jan 2026",
+    location: "Noida, India",
+    techStack: [
+      "Looker Studio",
+      "Excel",
+      "Power BI",
+      "GenAI",
+    ],
+    achievements: [
+      "Created reporting dashboards by unifying data from six internal data sources.",
+      "Reduced manual report preparation by over two hours per day for the editorial team.",
+      "Supported GenAI-assisted visual content workflows by generating and refining AI-generated media assets.",
+      "Improved data quality through validation, data cleansing, and reporting automation.",
+    ],
+  },
 ];
-
 const TeamGarage = () => {
   return (
     <section className="my-20 lg:my-28 animate-fade-in-up">

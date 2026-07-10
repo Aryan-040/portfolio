@@ -24,11 +24,11 @@ const NextLapButton = () => {
   const getNextRoute = () => {
     switch (location.pathname) {
       case "/about":
-        return { path: "/team-garage", label: "TEAM GARAGE" };
+        return { path: "/team-garage", label: "Experience" };
       case "/team-garage":
         return { path: "/projects", label: "RACE LAPS" };
       case "/projects":
-        return { path: "/contact", label: "PODIUM" };
+        return { path: "/contact", label: "Contact" };
       case "/contact":
         return { path: "/", label: "PIT LANE" };
       default:

@@ -17,10 +17,10 @@ const Navbar = () => {
 
   const navLinks = [
     { to: "/", label: "Start Grid" },
-    { to: "/about", label: "Pit" },
-    { to: "/team-garage", label: "Team Garage" },
-    { to: "/projects", label: "Race Laps" },
-    { to: "/contact", label: "Podium" },
+    { to: "/about", label: "Pit / About" },
+    { to: "/team-garage", label: "Team Garage / Experience" },
+    { to: "/projects", label: "Race Laps / Projects" },
+    { to: "/contact", label: "Podium / Contact" },
   ];
 
   return (
