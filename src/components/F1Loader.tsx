@@ -4,17 +4,12 @@ import { useEffect, useState, useRef } from 'react';
 interface F1LoaderProps {
   isLoading: boolean;
   forceMinDuration?: number;
+  muted: boolean;
+  setMuted: (muted: boolean) => void;
 }
 
-const F1Loader = ({ isLoading, forceMinDuration = 400 }: F1LoaderProps) => {
+const F1Loader = ({ isLoading, forceMinDuration = 400, muted, setMuted }: F1LoaderProps) => {
   const [showLoader, setShowLoader] = useState(false);
-  const [muted, setMuted] = useState<boolean>(() => {
-    try {
-      return localStorage.getItem('f1-muted') === 'true';
-    } catch (e) {
-      return false;
-    }
-  });
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -26,14 +21,17 @@ const F1Loader = ({ isLoading, forceMinDuration = 400 }: F1LoaderProps) => {
         const audio = new Audio('/f1.mp3');
         audio.loop = true;
         audio.volume = 0.5;
-        audio.muted = muted;
         audioRef.current = audio;
       }
+      
+      audioRef.current.muted = muted;
 
       const playAudio = async () => {
         try {
           if (!audioRef.current!.muted) {
             await audioRef.current!.play();
+          } else {
+            audioRef.current!.pause();
           }
         } catch (error) {
           console.log('Audio playback failed:', error);
@@ -55,7 +53,7 @@ const F1Loader = ({ isLoading, forceMinDuration = 400 }: F1LoaderProps) => {
     }, forceMinDuration);
 
     return () => clearTimeout(timer);
-  }, [isLoading, forceMinDuration]);
+  }, [isLoading, forceMinDuration, muted]);
 
   if (!showLoader) return null;
 
@@ -188,24 +186,13 @@ const F1Loader = ({ isLoading, forceMinDuration = 400 }: F1LoaderProps) => {
       <div className="absolute top-6 right-6 z-50">
         <button
           aria-label={muted ? 'Unmute audio' : 'Mute audio'}
-          className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-background/80 border border-border text-sm hover:bg-background/90 transition"
+          className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-background/80 border border-border text-sm hover:bg-background/90 transition text-foreground"
           onClick={() => {
             const newMuted = !muted;
             setMuted(newMuted);
             try {
               localStorage.setItem('f1-muted', String(newMuted));
-            } catch (e) {
-              // ignore
-            }
-
-            if (audioRef.current) {
-              audioRef.current.muted = newMuted;
-              if (newMuted) {
-                audioRef.current.pause();
-              } else {
-                audioRef.current.play().catch(() => {});
-              }
-            }
+            } catch (e) {}
           }}
         >
           {muted ? 'Unmute' : 'Mute'}
