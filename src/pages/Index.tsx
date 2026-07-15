@@ -10,7 +10,7 @@ const Index = () => {
     <main className="relative min-h-screen overflow-hidden flex flex-col">
       {/* Grid Background */}
       <div className="absolute inset-0 pit-grid opacity-30" />
-      
+
       {/* Animated Track Lines */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(4)].map((_, i) => (
@@ -27,18 +27,18 @@ const Index = () => {
       </div>
 
       {/* Main Content - Hero Section */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center py-8 lg:py-16">
         <div className="max-w-5xl mx-auto w-full">
           {/* Start Grid Label */}
-          <div className="flex items-center gap-3 mb-8 animate-fade-in-up">
+          <div className="flex items-center gap-3 mb-6 lg:mb-8 animate-fade-in-up">
             <Flag className="w-5 h-5 text-primary" />
             <span className="text-sm font-mono text-primary tracking-wider">START GRID // POSITION 01</span>
           </div>
 
           {/* Main Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:space-y-10">
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-orbitron font-black tracking-tight leading-none animate-fade-in-up"
-                style={{ animationDelay: "0.1s" }}>
+              style={{ animationDelay: "0.1s" }}>
               <span className="block text-foreground">ARYAN</span>
               <span className="block text-foreground">MUKUND</span>
               <span className="block text-primary track-glow">SINGH</span>
@@ -47,31 +47,52 @@ const Index = () => {
             <div className="space-y-4 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
               <div className="h-1 w-32 bg-primary track-glow" />
               <h2 className="text-xl sm:text-2xl md:text-3xl font-rajdhani font-bold text-secondary tracking-wide">
-                Engineering at <span className="text-primary">Race Speed</span>
+                Building Software at <span className="text-primary">Race Speed</span>
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                B.Tech CSE • Building <span className="text-primary font-semibold">intelligent</span>, <span className="text-primary font-semibold">scalable</span> solutions with Software Engineering, AI & Cloud Computing
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                Backend Engineer building <span className="text-primary font-semibold">scalable APIs</span>,{" "}
+                <span className="text-primary font-semibold">distributed systems</span>, and{" "}
+                <span className="text-primary font-semibold">cloud-native applications</span> with a focus on performance, reliability, and clean architecture.
               </p>
+
+              {/* Skill Chips */}
+              <div className="flex flex-wrap gap-2 pt-2">
+                {[
+                  "Backend",
+                  "Cloud",
+                  "APIs",
+                  "Database",
+                  "Distributed Systems",
+                  "System Design",
+                ].map((chip) => (
+                  <span
+                    key={chip}
+                    className="px-3 py-1.5 text-xs font-mono bg-card/40 text-foreground rounded-full border border-border hover:border-primary/40 transition-colors"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col items-center gap-6 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+            <div className="flex flex-col items-start gap-6 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
               <StartLapButton />
             </div>
 
             {/* Live Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border/30 max-w-2xl animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
               <div className="space-y-1">
-                <div className="text-2xl font-mono font-bold text-primary">300+</div>
-                <div className="text-xs text-muted-foreground font-mono tracking-wider">KM/H TOP SPEED</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-mono font-bold text-primary tracking-tight">350+</div>
+                <div className="text-xs text-muted-foreground font-mono tracking-wider">Problems Solved</div>
               </div>
               <div className="space-y-1">
-                <div className="text-2xl font-mono font-bold text-primary">9000</div>
-                <div className="text-xs text-muted-foreground font-mono tracking-wider">RPM REDLINE</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-mono font-bold text-primary tracking-tight">2</div>
+                <div className="text-xs text-muted-foreground font-mono tracking-wider">Internships</div>
               </div>
               <div className="space-y-1">
-                <div className="text-2xl font-mono font-bold text-primary">P1</div>
-                <div className="text-xs text-muted-foreground font-mono tracking-wider">GRID POSITION</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-mono font-bold text-primary tracking-tight">4+</div>
+                <div className="text-xs text-muted-foreground font-mono tracking-wider">Production Projects</div>
               </div>
             </div>
           </div>
