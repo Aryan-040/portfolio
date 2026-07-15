@@ -19,25 +19,25 @@ const About = () => {
       icon: Database,
       technologies: [
         "Node.js",
+        "Express.js",
         "TypeScript",
         "JavaScript",
         "Java",
-        "C++",
-        "REST",
+        "REST APIs",
+        "tRPC",
+        "PostgreSQL",
         "MongoDB",
         "MySQL",
       ],
-      rpm: 8500,
+      rpm: 8900,
     },
     {
       category: "Aerodynamics (Frontend)",
       icon: Code,
       technologies: [
         "React.js",
-        "JavaScript",
         "Next.js",
-        "TypeScript",
-        "Tailwind",
+        "Tailwind CSS",
         "Framer Motion",
         "HTML",
         "CSS",
@@ -45,15 +45,29 @@ const About = () => {
       rpm: 9200,
     },
     {
-      category: "Strategy (Cloud)",
+      category: "Pit Crew (Cloud & DevOps)",
       icon: Cloud,
       technologies: [
         "AWS",
         "Docker",
+        "Git",
         "GitHub Actions",
+        "CI/CD",
         "Vercel",
       ],
-      rpm: 8800,
+      rpm: 9000,
+    },
+    {
+      category: "Telemetry (Testing)",
+      icon: Gauge,
+      technologies: [
+        "JUnit",
+        "Unit Testing",
+        "Integration Testing",
+        "Debugging",
+        "Test Automation",
+      ],
+      rpm: 8100,
     },
   ];
 
@@ -90,9 +104,8 @@ const About = () => {
             About <span className="text-primary neon-text">The Driver</span>
           </h1>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-            B.Tech Computer Science Engineering student with a passion for
-            pushing the limits of technology through innovative software
-            solutions.
+            Computer Science graduate focused on backend engineering, scalable
+            distributed systems, and building high-performance web applications.
           </p>
         </div>
 
@@ -101,16 +114,18 @@ const About = () => {
           <Card className="p-6 lg:p-10 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 animate-fade-in-up">
             <div className="space-y-6">
               <p className="text-base lg:text-lg leading-relaxed text-foreground">
-                I'm a passionate software engineer who approaches development
-                like an F1 driver approaches a race - with precision, speed, and
-                constant optimization. My expertise spans across full-stack
-                development, cloud architecture, and artificial intelligence.
+                I'm a backend-focused software engineer who approaches development
+                like an F1 driver approaches a race with precision, performance,
+                and continuous optimization. I enjoy designing scalable APIs,
+                distributed systems, and cloud-native applications while keeping
+                code clean, maintainable, and production-ready.
               </p>
               <p className="text-base lg:text-lg leading-relaxed text-muted-foreground">
-                B.Tech in Computer Science graduate , I specialize in
-                building high-performance applications that scale. From
-                designing robust backend systems to crafting intuitive user
-                interfaces, I thrive on solving complex technical challenges.
+                My experience spans modern backend development, frontend engineering,
+                cloud infrastructure, databases, and testing. From architecting
+                REST APIs and microservices to building polished React interfaces,
+                I enjoy solving complex engineering problems with practical,
+                efficient solutions.
               </p>
               <div className="pt-4">
                 <a href="/Recruit.pdf" download="Aryan_Mukund_Singh_Resume.pdf">
@@ -206,7 +221,7 @@ const About = () => {
           </div>
         </div>
 
-  <NextLapButton />
+        <NextLapButton />
       </div>
     </main>
   );
