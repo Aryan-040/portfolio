@@ -74,6 +74,32 @@ const Projects = () => {
       lap: "Lap 3",
     },
     {
+      title: "Metrics",
+      
+      description:
+      "A multi-tenant performance management platform for structured monthly employee feedback. Supports hierarchical and flat organizational models, manager-to-employee feedback, 5-parameter performance evaluations with scores and justifications, HR compliance tracking, historical performance analytics, and company-scoped data isolation.",
+      
+      shortDescription:
+      "Multi-tenant performance management platform for monthly feedback, evaluations, HR tracking, and performance history.",
+      
+      technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "PostgreSQL",
+      "Prisma",
+      "Neon"
+      ],
+      
+      github: "https://github.com/Aryan-040/Metrics",
+      
+      demo: "https://metrics-orpin.vercel.app/",
+      
+      lap: "Lap 4",
+      },
+      
+    {
       title: "Eco-drop",
       description:
         "An eco-friendly marketplace that connects buyers and sellers facilitating trade of recyclable waste materials according to the categories.",
@@ -82,7 +108,7 @@ const Projects = () => {
       technologies: ["Tailwind", "Next.js", "React.js", "Github"],
       github: "https://github.com/Aryan-040/Eco-drop",
       demo: "xyz",
-      lap: "Lap 4",
+      lap: "Lap 5",
     },
   ];
 
