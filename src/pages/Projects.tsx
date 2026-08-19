@@ -3,6 +3,7 @@ import { ExternalLink, Award, Zap, Github, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import NextLapButton from "@/components/NextLapButton";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import {
   Dialog,
   DialogTrigger,
@@ -11,6 +12,48 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+
+// High-Sensitivity 3D Tilt Wrapper for Project Cards
+const ProjectCard3D = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 450, damping: 16 });
+  const mouseYSpring = useSpring(y, { stiffness: 450, damping: 16 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["20deg", "-20deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-20deg", "20deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+    const yPct = (e.clientY - rect.top) / rect.height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <div style={{ perspective: 1000 }} className="h-full">
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className={`h-full transition-all duration-300 hover:z-30 ${className}`}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+};
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -193,7 +236,7 @@ const Projects = () => {
           {filteredProjects.map((project, idx) => (
             <Card
               key={project.title}
-              className="group relative p-5 telemetry-card border-border hover:border-primary/50 transition-all duration-300 tilt-3d overflow-hidden animate-fade-in-up flex flex-col justify-between"
+              className="group relative p-5 telemetry-card border-border/80 hover:border-primary transition-all duration-300 hover:-translate-y-3.5 hover:scale-[1.03] hover:shadow-[0_25px_50px_rgba(225,6,0,0.4)] transform-gpu overflow-hidden animate-fade-in-up flex flex-col justify-between cursor-pointer h-full"
               style={{ animationDelay: `${idx * 0.05}s` }}
             >
               {/* Lap Indicator Badge */}
@@ -260,9 +303,9 @@ const Projects = () => {
                       Details
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="bg-card/95 border-primary/30 text-foreground font-rajdhani max-w-lg">
+                  <DialogContent className="telemetry-card border-primary/40 max-w-lg">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl font-orbitron font-bold text-primary flex items-center gap-2">
+                      <DialogTitle className="text-2xl font-orbitron font-bold text-foreground flex items-center gap-2">
                         <Zap className="w-5 h-5 text-primary" />
                         {project.title}
                       </DialogTitle>

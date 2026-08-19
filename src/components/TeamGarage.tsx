@@ -73,7 +73,7 @@ const TeamGarage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {experiences.map((exp, index) => (
             <div key={index} className="h-full">
-              <Card className="h-full p-6 telemetry-card hud-bracket border-border hover:border-primary/50 transition-all duration-300 flex flex-col justify-between">
+              <Card className="h-full p-6 telemetry-card hud-bracket border-border/80 hover:border-primary transition-all duration-300 hover:-translate-y-3.5 hover:scale-[1.03] hover:shadow-[0_25px_50px_rgba(225,6,0,0.4)] transform-gpu flex flex-col justify-between cursor-pointer">
                 <div className="flex flex-col h-full space-y-4">
                   {/* Header */}
                   <div className="border-b border-border/40 pb-4 space-y-1">

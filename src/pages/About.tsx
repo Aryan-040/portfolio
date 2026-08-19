@@ -121,11 +121,11 @@ const About = () => {
 
         {/* Bio Section with Driver Photo Card */}
         <div className="max-w-5xl mx-auto mb-12 lg:mb-16 animate-fade-in-up">
-          <Card className="telemetry-card p-6 lg:p-8 hud-bracket overflow-hidden">
+          <Card className="telemetry-card p-6 lg:p-8 hud-bracket overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_25px_50px_rgba(225,6,0,0.3)] hover:border-primary/60 transform-gpu cursor-pointer">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center">
               
               {/* Telemetry HUD Console */}
-              <div className="md:col-span-5 p-5 bg-black/60 rounded-2xl border border-primary/30 space-y-3.5">
+              <div className="md:col-span-5 p-5 bg-black/60 rounded-2xl border border-primary/30 space-y-3.5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-lg">
                 <div className="flex items-center justify-between border-b border-border/40 pb-2.5">
                   <div className="flex items-center gap-2">
                     <Cpu className="w-4 h-4 text-primary" />

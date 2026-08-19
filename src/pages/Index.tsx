@@ -6,6 +6,73 @@ import TeamGarageSection from "@/components/TeamGarage";
 import ProjectsSection from "@/pages/Projects";
 import ContactSection from "@/pages/Contact";
 import { SiLeetcode } from "react-icons/si";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+
+// Hyper-sensitive 3D Tilt Profile Photo Component
+const ProfilePhoto3D = () => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 500, damping: 15 });
+  const mouseYSpring = useSpring(y, { stiffness: 500, damping: 15 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["30deg", "-30deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-30deg", "30deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <div style={{ perspective: 1000 }} className="flex justify-center items-center">
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[340px] md:h-[340px] cursor-pointer group"
+      >
+        {/* 3D Ambient Red Glow Halo */}
+        <motion.div 
+          className="absolute -inset-3 bg-gradient-to-tr from-primary via-red-600 to-primary rounded-full blur-2xl opacity-75 group-hover:opacity-100 group-hover:blur-3xl transition-all duration-500 animate-pulse"
+          style={{ transform: "translateZ(-30px)" }}
+        />
+        
+        {/* 3D Photo Border & Image Container */}
+        <div 
+          className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary/50 group-hover:border-primary shadow-[0_25px_50px_rgba(225,6,0,0.4)] group-hover:shadow-[0_35px_65px_rgba(225,6,0,0.6)] transition-all duration-500"
+          style={{ transform: "translateZ(30px)" }}
+        >
+          <img
+            src="/aryan.jpg"
+            alt="Aryan Mukund Singh"
+            className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+          />
+          {/* Specular Light Glare */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+          />
+        </div>
+      </motion.div>
+    </div>
+  );
+};
 
 const Index = () => {
   const scrollToSection = (id: string) => {
@@ -172,21 +239,9 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Right Column: Driver Profile Photo in Circular Format */}
+            {/* Right Column: Driver Profile Photo in 3D Interactive Format */}
             <div className="lg:col-span-5 flex justify-center items-center animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[340px] md:h-[340px]">
-                {/* Red Ambient Glow Halo */}
-                <div className="absolute -inset-2 bg-gradient-to-tr from-primary/60 via-red-600/40 to-primary/60 rounded-full blur-2xl opacity-70 animate-pulse" />
-                
-                {/* Circular Photo Container */}
-                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary/40 shadow-2xl group hover:border-primary transition-all duration-500">
-                  <img
-                    src="/aryan.jpg"
-                    alt="Aryan Mukund Singh"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
+              <ProfilePhoto3D />
             </div>
 
           </div>
