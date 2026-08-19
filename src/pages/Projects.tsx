@@ -149,7 +149,7 @@ const Projects = () => {
   ];
 
   return (
-    <main className="relative min-h-screen py-8 lg:py-14">
+    <div className="relative py-4 lg:py-8">
       <div className="absolute inset-0 pit-grid opacity-20 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -329,9 +329,8 @@ const Projects = () => {
           </div>
         </div>
 
-        <NextLapButton />
       </div>
-    </main>
+    </div>
   );
 };
 

@@ -24,11 +24,6 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Play radio audio
-    const audio = new Audio("/f1-radio.mp3");
-    audio.volume = 0.6;
-    audio.play().catch(() => {});
-
     try {
       await sendContactEmail({
         name: formData.name,
@@ -68,7 +63,7 @@ const Contact = () => {
   };
 
   return (
-    <main className="relative min-h-screen py-10 lg:py-16">
+    <div className="relative py-4 lg:py-8">
       {/* Grid Background */}
       <div className="absolute inset-0 pit-grid opacity-20 pointer-events-none" />
 
@@ -338,10 +333,8 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Next Lap Button */}
-        <NextLapButton />
       </div>
-    </main>
+    </div>
   );
 };
 

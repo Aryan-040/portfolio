@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Briefcase, Calendar, MapPin, Wrench } from "lucide-react";
+import NextLapButton from "./NextLapButton";
 
 type Experience = {
   role: string;

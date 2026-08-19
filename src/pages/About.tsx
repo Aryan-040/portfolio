@@ -100,7 +100,7 @@ const About = () => {
   ];
 
   return (
-    <main className="relative min-h-screen py-8 lg:py-14">
+    <div className="relative py-4 lg:py-8">
       {/* Background Pit Grid */}
       <div className="absolute inset-0 pit-grid opacity-20 pointer-events-none" />
 
@@ -124,54 +124,68 @@ const About = () => {
           <Card className="telemetry-card p-6 lg:p-8 hud-bracket overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center">
               
-              {/* Driver Image Frame - Circular Format */}
-              <div className="md:col-span-4 flex flex-col items-center">
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-primary/40 shadow-2xl group hover:border-primary transition-all duration-300">
-                  <img
-                    src="/aryan.jpg"
-                    alt="Aryan Mukund Singh"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-
-                {/* Status Badges Below Photo */}
-                <div className="flex items-center gap-2 mt-3 font-mono text-[10px]">
-                  <span className="px-2.5 py-1 rounded bg-black/80 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
+              {/* Telemetry HUD Console */}
+              <div className="md:col-span-5 p-5 bg-black/60 rounded-2xl border border-primary/30 space-y-3.5">
+                <div className="flex items-center justify-between border-b border-border/40 pb-2.5">
+                  <div className="flex items-center gap-2">
+                    <Cpu className="w-4 h-4 text-primary" />
+                    <span className="font-mono text-xs font-bold text-foreground">
+                      TELEMETRY // CONSOLE
+                    </span>
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    ACTIVE STATUS
-                  </span>
-                  <span className="px-2.5 py-1 rounded bg-black/80 text-primary border border-primary/30 font-bold">
-                    CAR #04
+                    SYSTEM READY
                   </span>
                 </div>
 
-                <div className="mt-2 text-center space-y-1">
-                  <div className="font-orbitron font-bold text-base text-foreground">
-                    ARYAN MUKUND SINGH
+                <div className="space-y-2.5 font-mono text-xs">
+                  <div className="flex justify-between items-center bg-black/40 p-2.5 rounded-lg border border-border/30">
+                    <span className="text-muted-foreground text-[11px]">PRIMARY ROLE</span>
+                    <span className="text-primary font-bold">BACKEND SPECIALIST</span>
                   </div>
-                  <div className="text-xs font-mono text-muted-foreground flex items-center justify-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-primary" />
-                    India • Open to Remote & Onsite
+
+                  <div className="flex justify-between items-center bg-black/40 p-2.5 rounded-lg border border-border/30">
+                    <span className="text-muted-foreground text-[11px]">LOCATION</span>
+                    <span className="text-foreground flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-primary" />
+                      INDIA (REMOTE/ONSITE)
+                    </span>
                   </div>
+
+                  <div className="flex justify-between items-center bg-black/40 p-2.5 rounded-lg border border-border/30">
+                    <span className="text-muted-foreground text-[11px]">DSA / LEETCODE</span>
+                    <span className="text-emerald-400 font-bold">450+ PROBLEMS</span>
+                  </div>
+
+                  <div className="flex justify-between items-center bg-black/40 p-2.5 rounded-lg border border-border/30">
+                    <span className="text-muted-foreground text-[11px]">EXPERIENCE</span>
+                    <span className="text-purple-400 font-bold">2 INTERNSHIPS</span>
+                  </div>
+                </div>
+
+                <div className="pt-1 flex items-center justify-between text-[11px] font-mono border-t border-border/30">
+                  <span className="text-muted-foreground">CAR #04 // VERIFIED</span>
+                  <span className="text-emerald-400 font-bold">AWS CERTIFIED</span>
                 </div>
               </div>
 
               {/* Bio Details */}
-              <div className="md:col-span-8 space-y-4">
+              <div className="md:col-span-7 space-y-4">
                 <div className="space-y-2">
                   <div className="text-xs font-mono text-primary uppercase tracking-wider flex items-center gap-1.5">
                     <Briefcase className="w-4 h-4" />
                     <span>SOFTWARE ENGINEER & BACKEND ARCHITECT</span>
                   </div>
                   <p className="text-sm sm:text-base leading-relaxed text-foreground/90">
-                    I approach software development the way an F1 racing team approaches a Grand Prix—with precision engineering, constant telemetry monitoring, and non-stop performance optimization.
+                    I approach software engineering like an F1 racing team—with precision architecture, real-time telemetry monitoring, and non-stop latency optimization.
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                    Whether it's designing RESTful & tRPC microservices, scaling PostgreSQL & MongoDB databases, or establishing GitHub Actions CI/CD pipelines, I ensure every system runs cleanly under heavy load.
+                    Specializing in high-throughput RESTful & tRPC microservices, scaling PostgreSQL & MongoDB databases, and building automated GitHub Actions CI/CD pipelines.
                   </p>
                 </div>
 
-                {/* Highlights */}
+                {/* Capability Chips */}
                 <div className="grid grid-cols-2 gap-3 pt-1">
                   {[
                     "Scalable API Design",
@@ -191,7 +205,7 @@ const About = () => {
                   <a href="/Recruit.pdf" download="Aryan_Mukund_Singh_Resume.pdf">
                     <Button
                       size="lg"
-                      className="group bg-primary hover:bg-primary/90 text-white font-rajdhani font-bold text-base shadow-lg track-glow"
+                      className="group bg-primary hover:bg-primary/90 text-white font-rajdhani font-bold text-base shadow-lg track-glow cursor-pointer"
                     >
                       <FileDown className="w-5 h-5 mr-2 group-hover:translate-y-1 transition-transform" />
                       Download Resume (PDF)
@@ -199,7 +213,7 @@ const About = () => {
                   </a>
                   
                   <span className="text-xs font-mono text-muted-foreground">
-                    Updated 2026 • 2 Experience Internships
+                    Available for Full-time Roles
                   </span>
                 </div>
               </div>
@@ -293,9 +307,8 @@ const About = () => {
           </div>
         </div>
 
-        <NextLapButton />
       </div>
-    </main>
+    </div>
   );
 };
 

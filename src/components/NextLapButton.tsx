@@ -1,45 +1,33 @@
-import { useNavigate, useLocation } from "react-router-dom";
-import { Button } from "./ui/button";
 import { ChevronRight, Trophy } from "lucide-react";
 
-const NextLapButton = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+interface NextLapButtonProps {
+  targetId?: string;
+  label?: string;
+}
 
-  const getNextRoute = () => {
-    switch (location.pathname) {
-      case "/about":
-        return { path: "/team-garage", label: "NEXT LAP // EXPERIENCE & TEAM GARAGE" };
-      case "/team-garage":
-        return { path: "/projects", label: "NEXT LAP // RACE LAPS & PROJECTS" };
-      case "/projects":
-        return { path: "/contact", label: "NEXT LAP // PODIUM & CONTACT" };
-      case "/contact":
-        return { path: "/", label: "RETURN TO START GRID" };
-      default:
-        return { path: "/about", label: "NEXT LAP // ABOUT THE DRIVER" };
+const NextLapButton = ({ targetId = "experience", label = "NEXT SECTION" }: NextLapButtonProps) => {
+  const scrollToTarget = () => {
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const nextRoute = getNextRoute();
-
   return (
-    <div className="flex justify-center items-center py-10 my-6 border-t border-border/40 w-full">
-      <Button
-        size="lg"
-        onClick={() => navigate(nextRoute.path)}
-        className="group relative px-8 py-6 text-base font-rajdhani font-bold bg-primary hover:bg-primary/90 text-white border border-primary/50 overflow-hidden shadow-xl track-glow cursor-pointer"
+    <div className="flex justify-center items-center py-6 my-4 border-t border-border/30 w-full">
+      <button
+        onClick={scrollToTarget}
+        className="group relative px-6 py-3 rounded-xl text-xs sm:text-sm font-rajdhani font-bold bg-primary/90 hover:bg-primary text-white border border-primary/50 overflow-hidden shadow-lg track-glow cursor-pointer transition-all duration-300 flex items-center gap-2"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
         <span className="relative z-10 flex items-center gap-2">
-          {location.pathname === "/contact" ? (
-            <Trophy className="w-5 h-5 text-yellow-400" />
+          {targetId === "hero" ? (
+            <Trophy className="w-4 h-4 text-amber-400" />
           ) : (
-            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           )}
-          {nextRoute.label}
+          {label}
         </span>
-      </Button>
+      </button>
     </div>
   );
 };
