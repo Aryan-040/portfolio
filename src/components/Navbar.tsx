@@ -37,13 +37,18 @@ const Navbar = () => {
             {/* Logo */}
             <NavLink 
               to="/" 
-              className="flex items-center gap-2 group transition-all duration-300 ml-4 sm:ml-6 md:ml-8 lg:ml-10
-                transform hover:scale-105"
+              className="flex items-center gap-3 group transition-all duration-300 transform hover:scale-105"
             >
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/30 blur-lg rounded-full animate-telemetry-pulse" />
-                <div className="relative flex items-center justify-center w-10 h-10 bg-primary rounded-lg group-hover:scale-110 transition-transform duration-300 track-glow">
-                  <Flag className="w-5 h-5 text-primary-foreground" />
+              <div className="relative flex items-center gap-2">
+                <div className="relative w-9 h-9 rounded-full overflow-hidden border border-primary/50 group-hover:border-primary transition-colors">
+                  <img
+                    src="/aryan.jpg"
+                    alt="Aryan Mukund Singh"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+                <div className="relative flex items-center justify-center w-8 h-8 bg-primary rounded-lg group-hover:scale-110 transition-transform duration-300 track-glow">
+                  <Flag className="w-4 h-4 text-primary-foreground" />
                 </div>
               </div>
               <span className="text-xl font-orbitron font-bold tracking-wider text-foreground">

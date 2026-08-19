@@ -161,21 +161,21 @@ const Contact = () => {
               },
             ].map((card, idx) => {
               const CardContent = (
-                <Card className="group relative p-4 sm:p-5 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 overflow-hidden cursor-pointer h-full flex flex-col justify-between">
+                <Card className="group relative p-4 sm:p-5 telemetry-card border-border hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 overflow-hidden cursor-pointer h-full flex flex-col justify-between">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10 space-y-3 flex-1 flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="inline-flex p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                         <card.icon className="w-5 h-5 text-primary" />
                       </div>
-                      <h3 className="text-base sm:text-lg font-orbitron font-bold group-hover:text-primary transition-colors">
+                      <h3 className="text-base sm:text-lg font-orbitron font-bold text-foreground group-hover:text-primary transition-colors">
                         {card.title}
                       </h3>
                       <p className="text-xs font-mono text-muted-foreground break-all">
                         {card.detail}
                       </p>
                     </div>
-                    <div className="pt-2 text-xs font-rajdhani font-bold text-primary tracking-wider uppercase group-hover:underline flex items-center gap-1">
+                    <div className="pt-2 text-xs font-mono font-bold text-primary tracking-wider uppercase group-hover:underline flex items-center gap-1">
                       {card.actionLabel} &rarr;
                     </div>
                   </div>

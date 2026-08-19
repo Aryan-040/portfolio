@@ -2,86 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* F1 Telemetry & Design System Tokens */
 @layer base {
   :root {
-    /* Track Control UI - Racing Theme */
-    --background: 0 0% 5%;
+    /* Pitch Black Carbon Background */
+    --background: 0 0% 4%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 8%;
+    --card: 0 0% 7%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 8%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 100% 42%;
-    --primary-foreground: 0 0% 98%;
+    /* Authentic F1 Crimson Red */
+    --primary: 0 100% 45%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 75%;
     --secondary-foreground: 0 0% 5%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 64%;
 
     --accent: 0 100% 50%;
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 18%;
     --input: 0 0% 12%;
-    --ring: 0 100% 42%;
+    --ring: 0 100% 45%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Track UI Custom */
-    --track-line: 0 100% 42%;
-    --telemetry-green: 120 100% 40%;
-    --pit-light: 45 100% 50%;
+    /* Telemetry Specials */
+    --telemetry-green: 145 100% 45%;
+    --pit-gold: 45 100% 50%;
     
-    --sidebar-background: 0 0% 5%;
+    --sidebar-background: 0 0% 4%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 0 100% 42%;
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary: 0 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 12%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 0 100% 42%;
+    --sidebar-ring: 0 100% 45%;
   }
 
   .dark {
-    --background: 0 0% 5%;
+    --background: 0 0% 4%;
     --foreground: 0 0% 96%;
-    --card: 0 0% 8%;
+    --card: 0 0% 7%;
     --card-foreground: 0 0% 96%;
-    --popover: 0 0% 8%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 96%;
-    --primary: 0 100% 42%;
-    --primary-foreground: 0 0% 96%;
+    --primary: 0 100% 45%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 75%;
     --secondary-foreground: 0 0% 5%;
-    --muted: 0 0% 15%;
+    --muted: 0 0% 14%;
     --muted-foreground: 0 0% 65%;
-    --accent: 0 100% 42%;
+    --accent: 0 100% 45%;
     --accent-foreground: 0 0% 96%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 96%;
     --border: 0 0% 20%;
     --input: 0 0% 12%;
-    --ring: 0 100% 42%;
-    --sidebar-background: 0 0% 5%;
+    --ring: 0 100% 45%;
+    --sidebar-background: 0 0% 4%;
     --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 0 100% 42%;
+    --sidebar-primary: 0 100% 45%;
     --sidebar-primary-foreground: 0 0% 96%;
     --sidebar-accent: 0 0% 12%;
     --sidebar-accent-foreground: 0 0% 96%;
     --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 0 100% 42%;
+    --sidebar-ring: 0 100% 45%;
   }
 }
 
@@ -91,8 +88,9 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary selection:text-white;
     font-family: 'Inter', sans-serif;
+    background-color: #0a0a0c;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -109,99 +107,81 @@ All colors MUST be HSL.
   /* Track Surface */
   .track-surface {
     background: 
-      repeating-linear-gradient(90deg, hsl(0 0% 8%) 0px, hsl(0 0% 8%) 10px, hsl(0 0% 10%) 10px, hsl(0 0% 10%) 20px),
-      radial-gradient(circle at 20% 50%, hsl(0 100% 42% / 0.05), transparent 50%),
-      linear-gradient(180deg, hsl(0 0% 5%), hsl(0 0% 8%));
+      repeating-linear-gradient(90deg, hsl(0 0% 7%) 0px, hsl(0 0% 7%) 10px, hsl(0 0% 9%) 10px, hsl(0 0% 9%) 20px),
+      radial-gradient(circle at 20% 50%, hsl(0 100% 45% / 0.08), transparent 60%),
+      linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 7%));
   }
 
   /* Pit Lane Grid */
   .pit-grid {
     background-image: 
-      linear-gradient(hsl(0 0% 18% / 0.5) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(0 0% 18% / 0.5) 1px, transparent 1px);
-    background-size: 20px 20px;
+      linear-gradient(hsl(0 0% 18% / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 18% / 0.4) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Telemetry Glass Card */
+  .telemetry-card {
+    background: rgba(18, 18, 22, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px -5px rgba(225, 6, 0, 0.15);
+  }
+
+  .telemetry-card:hover {
+    border-color: rgba(225, 6, 0, 0.4);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.9), 0 0 30px 0px rgba(225, 6, 0, 0.25);
+  }
+
+  /* Corner HUD brackets */
+  .hud-bracket {
+    position: relative;
+  }
+  .hud-bracket::before,
+  .hud-bracket::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-color: rgba(225, 6, 0, 0.6);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  .hud-bracket::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+  }
+  .hud-bracket::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+  }
+  .hud-bracket:hover::before,
+  .hud-bracket:hover::after {
+    border-color: hsl(var(--primary));
+    width: 14px;
+    height: 14px;
   }
 
   /* Track Line Glow */
   .track-glow {
-    box-shadow: 0 0 30px hsl(0 100% 42% / 0.6), 0 0 60px hsl(0 100% 42% / 0.3);
+    box-shadow: 0 0 20px hsl(0 100% 45% / 0.7), 0 0 40px hsl(0 100% 45% / 0.35);
+  }
+
+  .red-neon-text {
+    color: #ff2a2a;
+    text-shadow: 0 0 10px rgba(255, 42, 42, 0.8), 0 0 20px rgba(225, 6, 0, 0.4);
   }
 
   /* Telemetry Text */
   .telemetry-text {
     font-family: 'JetBrains Mono', monospace;
-    text-shadow: 0 0 8px hsl(120 100% 40% / 0.8);
+    text-shadow: 0 0 8px hsl(145 100% 45% / 0.8);
     letter-spacing: 0.05em;
-  }
-
-  /* Wheel Spin */
-  @keyframes wheel-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  .animate-wheel-spin {
-    animation: wheel-spin 0.6s linear infinite;
-  }
-
-  /* RPM Gauge Fill */
-  @keyframes rpm-fill {
-    0% { width: 0%; }
-    100% { width: 100%; }
-  }
-
-  /* Pit Light Sequence */
-  @keyframes pit-light {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-
-  /* Track Wipe */
-  @keyframes track-wipe {
-    from { clip-path: circle(0% at 50% 50%); }
-    to { clip-path: circle(150% at 50% 50%); }
-  }
-
-  /* Brake Fade */
-  @keyframes brake-fade {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-
-  /* Spark Rise */
-  @keyframes spark-rise {
-    0% {
-      opacity: 0;
-      transform: translateY(0) scale(0);
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(-30px) scale(1.2);
-    }
-  }
-
-  /* Checkered Flag Wave */
-  @keyframes checkered-wave {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-  }
-
-  /* Telemetry Pulse */
-  @keyframes telemetry-pulse {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; }
-  }
-
-  /* Motion Blur Effect */
-  .motion-blur {
-    transition: filter 0.2s ease;
-  }
-
-  .motion-blur:hover {
-    filter: blur(0.5px);
   }
 
   /* 3D Tilt */
@@ -221,20 +201,12 @@ All colors MUST be HSL.
       opacity: 0;
     }
     50% {
-      opacity: 0.3;
+      opacity: 0.35;
     }
     100% {
       transform: translateX(100%);
       opacity: 0;
     }
   }
-
-  /* Red neon / garage glow utilities */
-  .neon-red {
-    text-shadow: 0 0 8px hsl(var(--destructive) / 0.85), 0 0 20px hsl(var(--destructive) / 0.45);
-  }
-
-  .red-glow {
-    box-shadow: 0 0 18px hsl(var(--destructive) / 0.45), 0 0 36px hsl(var(--destructive) / 0.18);
-  }
 }
+
