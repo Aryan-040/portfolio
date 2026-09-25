@@ -60,24 +60,25 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Stoxie",
-      category: "fullstack",
-      categoryLabel: "FinTech & Real-Time",
+      title: "PrepKit",
+      category: "ai",
+      categoryLabel: "AI & Interview Intelligence",
       description:
-        "A modern stock tracking web application that helps users monitor their favorite stocks, manage personalized watchlists, and receive daily stock news via email.",
+        "An AI-powered interview preparation platform that generates personalized study kits from job descriptions. Crawls company websites, researches interview processes, and creates customized question banks, flashcards, and day-by-day study schedules using sequential LLM pipelines with Gemini/Groq. Features confidence-tracked practice mode, drag-and-drop editing, and real-time progress via SSE.",
       shortDescription:
-        "Real-time stock tracking web app with personalized watchlists and automated email news alerts.",
+        "AI interview prep kit generator with company research, custom question banks, flashcards, and smart scheduling.",
       technologies: [
-        "React.js",
-        "Next.js",
-        "MongoDB Atlas",
-        "Tailwind",
+        "Next.js 14",
         "TypeScript",
-        "Inngest",
-        "Finnhub API",
+        "Express.js",
+        "MongoDB",
+        "Google Gemini",
+        "Tailwind CSS",
+        "Vercel",
+        "SSE",
       ],
-      github: "https://github.com/Aryan-040/Stoxie",
-      demo: "https://stoxie-eight.vercel.app",
+      github: "https://github.com/Aryan-040/PrepKit",
+      demo: "https://prepkit-lilac.vercel.app/",
       lap: "Lap 1",
     },
     {
@@ -106,23 +107,24 @@ const Projects = () => {
       lap: "Lap 2",
     },
     {
-      title: "idea Stash",
+      title: "Stoxie",
       category: "fullstack",
-      categoryLabel: "Content Intelligence",
+      categoryLabel: "FinTech & Real-Time",
       description:
-        "A full-stack content intelligence platform for saving, organizing, and discovering resources across YouTube, GitHub, Twitter/X, articles, and websites. Features automated metadata extraction, rich previews, advanced search, sharing capabilities, and secure JWT-based authentication.",
+        "A modern stock tracking web application that helps users monitor their favorite stocks, manage personalized watchlists, and receive daily stock news via email.",
       shortDescription:
-        "Content intelligence library with automated metadata extraction, advanced search, and JWT auth.",
+        "Real-time stock tracking web app with personalized watchlists and automated email news alerts.",
       technologies: [
-        "Node.js",
-        "Express.js",
         "React.js",
+        "Next.js",
         "MongoDB Atlas",
-        "Tailwind CSS",
-        "JWT Auth",
+        "Tailwind",
+        "TypeScript",
+        "Inngest",
+        "Finnhub API",
       ],
-      github: "https://github.com/Aryan-040/Idea-stash",
-      demo: "https://idea-stash-xi.vercel.app/",
+      github: "https://github.com/Aryan-040/Stoxie",
+      demo: "https://stoxie-eight.vercel.app",
       lap: "Lap 3",
     },
     {
@@ -147,6 +149,26 @@ const Projects = () => {
       lap: "Lap 4",
     },
     {
+      title: "idea Stash",
+      category: "fullstack",
+      categoryLabel: "Content Intelligence",
+      description:
+        "A full-stack content intelligence platform for saving, organizing, and discovering resources across YouTube, GitHub, Twitter/X, articles, and websites. Features automated metadata extraction, rich previews, advanced search, sharing capabilities, and secure JWT-based authentication.",
+      shortDescription:
+        "Content intelligence library with automated metadata extraction, advanced search, and JWT auth.",
+      technologies: [
+        "Node.js",
+        "Express.js",
+        "React.js",
+        "MongoDB Atlas",
+        "Tailwind CSS",
+        "JWT Auth",
+      ],
+      github: "https://github.com/Aryan-040/Idea-stash",
+      demo: "https://idea-stash-xi.vercel.app/",
+      lap: "Lap 5",
+    },
+    {
       title: "Eco-drop",
       category: "marketplace",
       categoryLabel: "Eco Marketplace",
@@ -157,7 +179,7 @@ const Projects = () => {
       technologies: ["Next.js", "React.js", "Tailwind CSS", "GitHub"],
       github: "https://github.com/Aryan-040/Eco-drop",
       demo: "xyz",
-      lap: "Lap 5",
+      lap: "Lap 6",
     },
   ];
 
